@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<title>Home</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="description" content="Lucid Bootstrap 4.1.1 Admin Template">
+<meta name="author" content="WrapTheme, design by: ThemeMakker.com">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<!-- VENDOR CSS -->
+<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="vendor/chartist/css/chartist.min.css">
+<link rel="stylesheet" href="vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
+<link rel="stylesheet" href="vendor/toastr/toastr.min.css">
+
+<!-- MAIN CSS -->
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/color_skins.css">
+</head>
+<body class="theme-cyan">
+
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><h4 style="color: aliceblue;">Code Blue</h4></div>
+        <p>Please wait...</p>        
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+
+<div id="wrapper">
+
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-btn">
+                <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu fa fa-bars"></i></button>
+            </div>
+
+            <div class="navbar-brand">
+                <a href="home"><h4 style="color: aliceblue;">Code Blue</h4></a>                
+            </div>
+            
+            <div class="navbar-right">              
+
+                <div id="navbar-menu">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="logout" class="icon-menu"><i class="icon-login"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="left-sidebar" class="sidebar">
+        <div class="sidebar-scroll">
+            <div class="user-account">
+                <img src="images/doc.png" class="rounded-circle user-photo" alt="User Profile Picture">
+                <div class="dropdown">
+                    <span>Welcome,</span>
+                    <a class="user-name" data-toggle="dropdown"><strong>Dr. Pradeep Reddy</strong></a>
+                    
+                </div>
+                <hr>
+                <ul class="row list-unstyled">
+                    <li class="col-4">
+                        <small>Exp</small>
+                        <h6>8</h6>
+                    </li>
+                    <li class="col-4">
+                        <small>Awards</small>
+                        <h6>6</h6>
+                    </li>
+                    <li class="col-4">
+                        <small>Clients</small>
+                        <h6>125</h6>
+                    </li>
+                </ul>
+            </div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#setting"><i class="icon-settings"></i></a></li>                
+            </ul>
+                
+            <!-- Tab panes -->
+            <div class="tab-content p-l-0 p-r-0">
+                <div class="tab-pane active" id="menu">
+                    <nav class="sidebar-nav">
+                        <ul class="main-menu metismenu">
+                            <li class="active"><a href="home"><i class="icon-home"></i><span>Dashboard</span></a></li>
+                            <li><a href="appoint"><i class="icon-list"></i>Appointments</a></li>    
+                            <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-user"></i><span>Patients</span> </a>
+                                <ul>
+                                    <li><a href="patient-view">View Records</a></li>
+                                    <li><a href="patient-list">Patients List</a></li>
+                                    <li><a href="patient-rep">Patient Report</a></li>
+                                    <li><a href="payments-invoice">Invoice</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="tab-pane p-l-15 p-r-15" id="setting">
+    
+                    <h6>General Settings</h6>
+                    <ul class="setting-list list-unstyled">
+                        <li>
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" name="checkbox">
+                                <span>Email Redirect</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" name="checkbox">
+                                <span>Notifications</span>
+                            </label>                      
+                        </li>
+                        <li>
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" name="checkbox">
+                                <span>Auto Updates</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" name="checkbox">
+                                <span>Offline</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" name="checkbox">
+                                <span>Location Permission</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>             
+            </div>          
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"></a> Dashboard</h2>
+                    </div>                                
+                </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-lg-3 col-md-12">
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-6">
+                            <div class="card top_counter">
+                                <div class="body">
+                                    <div id="top_counter1" class="carousel vert slide" data-ride="carousel" data-interval="2500">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <div class="content">
+                                                    <div class="text">Total Patient</div>
+                                                    <h5 class="number">215</h5>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="content">
+                                                    <div class="text">New Patient</div>
+                                                    <h5 class="number">21</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div id="top_counter2" class="carousel vert slide" data-ride="carousel" data-interval="2100">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <div class="content">
+                                                    <div class="text">Operations</div>
+                                                    <h5 class="number">06</h5>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="content">
+                                                    <div class="text">Surgery</div>
+                                                    <h5 class="number">04</h5>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="content">
+                                                    <div class="text">Treatment</div>
+                                                    <h5 class="number">23</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-6">
+                            <div class="card top_counter">
+                                <div class="body">
+                                    <div id="top_counter3" class="carousel vert slide" data-ride="carousel" data-interval="2300">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <div class="content">
+                                                    <div class="text">Total Visitors</div>
+                                                    <h5 class="number">10K</h5>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="content">
+                                                    <div class="text">Today Visitors</div>
+                                                    <h5 class="number">142</h5>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="content">
+                                                    <div class="text">Month Visitors</div>
+                                                    <h5 class="number">2,087</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                    <hr>
+                                    <div class="content">
+                                        <div class="text">Revenue</div>
+                                        <h5 class="number">Rs. 5,80,925</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12">
+                            <div class="card top_counter">
+                                <div class="body">
+                                    <div class="content">
+                                        <div class="text">Happy Clients</div>
+                                        <h5 class="number">528</h5>
+                                    </div>
+                                    <hr>
+                                    <div class="content">
+                                        <div class="text">Smiley Faces</div>
+                                        <h5 class="number">2,528</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Total Revenue - Augest</h2>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="body bg-success text-light">
+                                        <h4><i class="icon-wallet"></i> Rs. 125000 </h4>
+                                        <span>Operation Income</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="body bg-warning text-light">
+                                        <h4><i class="icon-wallet"></i> Rs. 45000</h4>
+                                        <span>Pharmacy Income</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="body bg-danger text-light">
+                                        <h4><i class="icon-wallet"></i> Rs. 84500</h4>
+                                        <span>Hospital Expenses</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="total_revenue" class="ct-chart m-t-20"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-lg-6 col-md-12">
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h2>Patient history</h2>
+                                </div>
+                                <div class="body">
+                                    <div id="patient_history" class="chartist"></div>
+                                </div>
+                            </div>
+                        </div>                                              
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Hospital Blogs</h2>
+                        </div>
+                        <div class="body">
+                            <div class="timeline-item green">
+                                <span class="date">11-09-2018</span>
+                                <h5>A Brief History Of Anesthetics</h5>
+                                <span><a href="javascript:void(0);">Muthu Ramalingam</a> Fortis, KL</span>
+                                <div class="msg">
+                                    <p>The father of modern anaesthesia is credited as W.T.G Morton who gave ether to a patient in Boston, Massachusetts in October 1846. Prior to this, techniques for anaesthesia included, alcohol, opium, cannabis and hypnosis. Nitrous oxide (laughing gas) was first used in 1844 by Horace Wells.</p>
+                                    <a href="javascript:void(0);" class="m-r-20"><i class="icon-heart"></i> Like</a>
+                                </div>                                
+                            </div>
+
+                            <div class="timeline-item blue">
+                                <span class="date">10-09-2018</span>
+                                <h5>Using Cold Laser Teatment to Help</h5>
+                                <span><a href="javascript:void(0);" title="">Katherine Lokesh</a> Oakland, CA</span>
+                                <div class="msg">
+                                    <p>The technique is called “cold” laser therapy because the low levels of light aren’t enough to heat your body’s tissue. The level of light is low when compared to other forms of laser therapy, such as those used to destroy tumors and coagulate tissue.</p>
+                                    <div class="timeline_img m-b-20">
+                                        <img class="w-25" src="images/laser1.jpg" alt="Awesome Image">
+                                        <img class="w-25" src="images/laser2.jpg" alt="Awesome Image">
+                                    </div>
+                                    <a href="javascript:void(0);" class="m-r-20"><i class="icon-heart"></i> Like</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Patients Status</h2>
+                        </div>
+                        <div class="body">
+                            <p class="float-md-right">
+                                <span class="badge badge-success">2 Admit</span>
+                                <span class="badge badge-default">1 Discharge</span>
+                            </p>
+                            <div class="table-responsive table_middel">
+                                <table class="table m-b-0">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Patients</th>
+                                            <th>Adress</th>
+                                            <th>START Date</th>
+                                            <th>END Date</th>
+                                            <th>Priority</th>
+                                            <th>Progress</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><img src="images/user_img.png" class="rounded-circle width30 m-r-15" alt="profile-image"><span>Kunti Raja</span></td>
+                                            <td><span class="text-info">13, Diya Heights, Chennai - 600145</span></td>
+                                            <td>Aug 13, 2018</td>
+                                            <td>Aug 16, 2018</td>
+                                            <td><span class="badge badge-warning">MEDIUM</span></td>
+                                            <td><div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"> <span class="sr-only">40% Complete</span> </div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge badge-success">Admit</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><img src="images/user_img.png" class="rounded-circle width30 m-r-15" alt="profile-image"><span>Naval Ganguly</span></td>
+                                            <td><span class="text-info">33, Akanksha Nagar, Pondichery 32904</span></td>
+                                            <td>Jan 13, 2018</td>
+                                            <td>Feb 22, 2018</td>
+                                            <td><span class="badge badge-low">LOW</span></td>
+                                            <td><div class="progress progress-xs">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"> <span class="sr-only">100% Complete</span> </div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge badge-default">Discharge</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td><img src="images/user_img.png" class="rounded-circle width30 m-r-15" alt="profile-image"><span>Hanuman Hora</span></td>
+                                            <td><span class="text-info">73, Yash Nagar, Chennai 600073</span></td>
+                                            <td>Apl 10, 2018</td>
+                                            <td>Apl 14, 2018</td>
+                                            <td><span class="badge badge-warning">MEDIUM</span></td>
+                                            <td><div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width: 15%;"> <span class="sr-only">15% Complete</span> </div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge badge-success">Admit</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<!-- Javascript -->
+<script src="bundles/libscripts.bundle.js"></script>
+<script src="bundles/vendorscripts.bundle.js"></script>
+
+<script src="bundles/chartist.bundle.js"></script>
+<script src="bundles/knob.bundle.js"></script> <!-- Jquery Knob-->
+<script src="bundles/flotscripts.bundle.js"></script> <!-- flot charts Plugin Js -->
+<script src="vendor/toastr/toastr.js"></script>
+<script src="vendor/flot-charts/jquery.flot.selection.js"></script>
+
+<script src="bundles/mainscripts.bundle.js"></script>
+<script src="js/index.js"></script>
+</body>
+
+<!-- Mirrored from thememakker.com/templates//lucid/hospital/dark/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Sep 2018 07:16:58 GMT -->
+</html>

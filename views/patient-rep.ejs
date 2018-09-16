@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<title>Add Report</title>
+<script src="web3.js/dist/web3.min.js"></script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="description" content="Lucid Bootstrap 4.1.1 Admin Template">
+<meta name="author" content="WrapTheme, design by: ThemeMakker.com">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<!-- VENDOR CSS -->
+<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="vendor/chartist/css/chartist.min.css">
+<link rel="stylesheet" href="vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
+<link rel="stylesheet" href="vendor/toastr/toastr.min.css">
+
+<!-- MAIN CSS -->
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/color_skins.css">
+  
+  <!-- Created for Block chain -->
+  
+  <script type="text/javascript">
+            //JS Code goes here
+            
+            var web3;
+            var contract_address = "0x198371091091Ae156Ef08e6Bea1F7Eab444Fbe67";
+            var contract_abi = [ { "constant": true, "inputs": [], "name": "getUserId", "outputs": [ { "name": "", "type": "string", "value": "APP_102" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "getDate", "outputs": [ { "name": "", "type": "string", "value": "12-9-2018 06:55" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "d_id", "type": "string" }, { "name": "u_id", "type": "string" }, { "name": "reason", "type": "string" }, { "name": "dofv", "type": "string" }, { "name": "urlt", "type": "string" }, { "name": "urlr", "type": "string" } ], "name": "setDetails", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "getURLRep", "outputs": [ { "name": "", "type": "string", "value": "aa1" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "getDocId", "outputs": [ { "name": "", "type": "string", "value": "121" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "getReason", "outputs": [ { "name": "", "type": "string", "value": "aa1" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "getURLTest", "outputs": [ { "name": "", "type": "string", "value": "aa1" } ], "payable": false, "stateMutability": "view", "type": "function" } ]
+
+            if (typeof web3 !== 'undefined') {
+                web3 = new Web3(web3.currentProvider);
+            } 
+            else {
+                // set the provider you want from Web3.providers
+                web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+            }
+
+            var contract_inst = web3.eth.contract(contract_abi).at(contract_address);
+        var us_id,doc_id,da,url,rem,rea;  
+        function getUserId()
+        {
+          us_id = contract_inst.getUserId();
+          doc_id = contract_inst.getDocId();
+          da = contract_inst.getDate();
+          url = contract_inst.getURLRep();
+          rem = contract_inst.getURLTest();
+          rea = contract_inst.getReason();
+          console.log(us_id+"\n"+doc_id+"\n"+rea+"\n"+da+"\n"+rem+"\n"+url+"\n");
+        }
+        function addValues()
+        {
+            var date = new Date();
+            var day = date.getDate();
+            var month = date.getMonth()+1;
+            var year = date.getFullYear();
+            var time = date.toTimeString().split(' ')[0].split(':');
+            var doc_id = "APP_145822";
+            var user_id = document.getElementById("user_id").value;   
+            var reason = document.getElementById("reason").value;
+            var url = document.getElementById("remark").value;
+            var remark = document.getElementById("url_test").value;
+            var dateofvisit = day+'-'+month+'-'+year+' '+time[0]+':'+time[1];
+                
+            web3.personal.unlockAccount(web3.eth.accounts[0], '12345678');
+                contract_inst.setDetails(user_id,doc_id,reason,dateofvisit,remark,url, { from: web3.eth.accounts[0],gas: 300000},function(error, result){
+                    if(error)
+                        {
+                            console.error(error);
+                        }
+                    else
+                        {
+                            var tranc_hash = result;
+                            console.log("Transaction Hash : "+tranc_hash);
+                            callWhenMined(tranc_hash, getUserId);
+                        }
+                });
+        }
+        function callWhenMined(tranc_hash, callback)
+            {
+                web3.eth.getTransactionReceipt(tranc_hash, function(error, rcpt){
+                    if(error)
+                    {
+                        console.error(error);
+                    }
+                    else
+                    {
+                        if(rcpt == null)
+                            {
+                                setTimeout(function(){
+                                           callWhenMined(tranc_hash, callback); 
+                                },500);
+                            }
+                        else{
+                            callback();
+                            alert("Mined :)");
+                        }
+                    }
+                })
+            }
+//              $('#form').submit( function(eventObj) {
+//                  $('<input />').attr('type', 'hidden')
+//          .attr('name', "something")
+//          .attr('value', "something")
+//          .appendTo(this)
+//                return true;
+//  });
+        </script>
+  
+</head>
+<body class="theme-cyan">
+
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><h4 style="color: aliceblue;">Code Blue</h4></div>
+        <p>Please wait...</p>        
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+
+<div id="wrapper">
+
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-btn">
+                <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu fa fa-bars"></i></button>
+            </div>
+
+            <div class="navbar-brand">
+                <a href="home"><h4 style="color: aliceblue;">Code Blue</h4></a>                
+            </div>
+            
+            <div class="navbar-right">              
+
+                <div id="navbar-menu">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="logout" class="icon-menu"><i class="icon-login"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="left-sidebar" class="sidebar">
+        <div class="sidebar-scroll">
+            <div class="user-account">
+                <img src="images/doc.png" class="rounded-circle user-photo" alt="User Profile Picture">
+                <div class="dropdown">
+                    <span>Welcome,</span>
+                    <a class="user-name" data-toggle="dropdown"><strong>Dr. Pradeep Reddy</strong></a>
+                    
+                </div>
+                <hr>
+                <ul class="row list-unstyled">
+                    <li class="col-4">
+                        <small>Exp</small>
+                        <h6>8</h6>
+                    </li>
+                    <li class="col-4">
+                        <small>Awards</small>
+                        <h6>6</h6>
+                    </li>
+                    <li class="col-4">
+                        <small>Clients</small>
+                        <h6>125</h6>
+                    </li>
+                </ul>
+            </div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#setting"><i class="icon-settings"></i></a></li>                
+            </ul>
+                
+            <!-- Tab panes -->
+            <div class="tab-content p-l-0 p-r-0">
+                <div class="tab-pane active" id="menu">
+                    <nav class="sidebar-nav">
+                        <ul class="main-menu metismenu">
+                            <li><a href="home"><i class="icon-home"></i><span>Dashboard</span></a></li>
+                            <li><a href="appoint"><i class="icon-list"></i>Appointments</a></li>    
+                            <li class="active"><a href="javascript:void(0);" class="has-arrow"><i class="icon-user"></i><span>Patients</span> </a>
+                                <ul>
+                                    <li><a href="patient-view">View Records</a></li>
+                                    <li><a href="patient-list">Patients List</a></li>
+                                    <li class="active"><a href="patient-rep">Patient Report</a></li>
+                                    <li><a href="payments-invoice">Invoice</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="tab-pane p-l-15 p-r-15" id="setting">
+    
+                    <h6>General Settings</h6>
+                    <ul class="setting-list list-unstyled">
+                        <li>
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" name="checkbox">
+                                <span>Email Redirect</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" name="checkbox">
+                                <span>Notifications</span>
+                            </label>                      
+                        </li>
+                        <li>
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" name="checkbox">
+                                <span>Auto Updates</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" name="checkbox">
+                                <span>Offline</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" name="checkbox">
+                                <span>Location Permission</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>             
+            </div>          
+        </div>
+    </div>
+
+
+    <div id="main-content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"></a>Add Report</h2>                        
+                    </div>                                
+                </div>
+            </div>
+            
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Basic Information <small>Enter basic information to generate report...</small> </h2>                            
+                        </div>
+                        <form action="/patient-rep" method="post">
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <input type="number" id="user_id" class="form-control" name="pat_id" placeholder="Patient ID">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="name" placeholder="Patient Name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" name="phone" placeholder="Phone No.">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">                            
+                                <div class="col-sm-3">
+                                    <div class="input-group">                                        
+                                        <input type="text" data-provide="datepicker" data-date-autoclose="true" class="form-control" name="visit" placeholder="Visit Date">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" name="age" placeholder="Age">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <select class="form-control show-tick" name="gender">
+                                            <option value="">- Gender -</option>
+                                            <option value="m">Male</option>
+                                            <option value="f">Female</option>
+                                        </select>
+                                    </div>
+                                </div>                            
+                            </div>
+                            <div class="row clearfix">
+                            <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="reason" name="reason" placeholder="Reason of Visit">
+                                    </div>
+                            </div>
+                            <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <textarea rows="6" class="form-control" id="remark" name="medication" placeholder="Medication Prescribed"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="row clearfix">                            
+                                <div class="col-sm-12">
+                                    <div class="form-group m-t-20">
+                                        <textarea rows="6" class="form-control" name="remarks" placeholder="Remarks of visit" id = "url_test"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-primary" onclick="addValues()" name="submit">Add Report to Blockchain</button>
+                                    <button type="submit" class="btn btn-outline-secondary" onclick="getUserId()">Rewrite Report</button>
+                                </div>
+                            </div>
+                        </div>
+                      </form>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+    
+</div>
+
+
+<!-- Javascript -->
+<script src="bundles/libscripts.bundle.js"></script>    
+<script src="bundles/vendorscripts.bundle.js"></script>
+
+<script src="vendor/dropify/js/dropify.min.js"></script>
+<script src="vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script><!-- bootstrap datepicker Plugin Js --> 
+
+<script src="bundles/mainscripts.bundle.js"></script>
+<script src="js/pages/forms/dropify.js"></script>
+</body>
+</html>

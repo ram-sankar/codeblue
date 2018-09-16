@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<title>Patients</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="description" content="Lucid Bootstrap 4.1.1 Admin Template">
+<meta name="author" content="WrapTheme, design by: ThemeMakker.com">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<!-- VENDOR CSS -->
+<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="vendor/chartist/css/chartist.min.css">
+<link rel="stylesheet" href="vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
+<link rel="stylesheet" href="vendor/toastr/toastr.min.css">
+
+<!-- MAIN CSS -->
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/color_skins.css">
+</head>
+<body class="theme-cyan">
+
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><h4 style="color: aliceblue;">Code Blue</h4></div>
+        <p>Please wait...</p>        
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+
+<div id="wrapper">
+
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-btn">
+                <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu fa fa-bars"></i></button>
+            </div>
+
+            <div class="navbar-brand">
+                <a href="home"><h4 style="color: aliceblue;">Code Blue</h4></a>                
+            </div>
+            
+            <div class="navbar-right">              
+
+                <div id="navbar-menu">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="logout" class="icon-menu"><i class="icon-login"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="left-sidebar" class="sidebar">
+        <div class="sidebar-scroll">
+            <div class="user-account">
+                <img src="images/doc.png" class="rounded-circle user-photo" alt="User Profile Picture">
+                <div class="dropdown">
+                    <span>Welcome,</span>
+                    <a class="user-name" data-toggle="dropdown"><strong>Dr. Pradeep Reddy</strong></a>
+                    
+                </div>
+                <hr>
+                <ul class="row list-unstyled">
+                    <li class="col-4">
+                        <small>Exp</small>
+                        <h6>8</h6>
+                    </li>
+                    <li class="col-4">
+                        <small>Awards</small>
+                        <h6>6</h6>
+                    </li>
+                    <li class="col-4">
+                        <small>Clients</small>
+                        <h6>125</h6>
+                    </li>
+                </ul>
+            </div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#setting"><i class="icon-settings"></i></a></li>                
+            </ul>
+                
+            <!-- Tab panes -->
+            <div class="tab-content p-l-0 p-r-0">
+                <div class="tab-pane active" id="menu">
+                    <nav class="sidebar-nav">
+                        <ul class="main-menu metismenu">
+                            <li><a href="home"><i class="icon-home"></i><span>Dashboard</span></a></li>
+                            <li><a href="appoint"><i class="icon-list"></i>Appointments</a></li>    
+                            <li class="active"><a href="javascript:void(0);" class="has-arrow"><i class="icon-user"></i><span>Patients</span> </a>
+                                <ul>
+                                    <li><a href="patient-view">View Records</a></li>
+                                    <li class="active"><a href="patient-list">Patients List</a></li>
+                                    <li><a href="patient-rep">Patient Report</a></li>
+                                    <li><a href="payments-invoice">Invoice</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="tab-pane p-l-15 p-r-15" id="setting">
+    
+                    <h6>General Settings</h6>
+                    <ul class="setting-list list-unstyled">
+                        <li>
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" name="checkbox">
+                                <span>Email Redirect</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" name="checkbox">
+                                <span>Notifications</span>
+                            </label>                      
+                        </li>
+                        <li>
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" name="checkbox">
+                                <span>Auto Updates</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" name="checkbox">
+                                <span>Offline</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" name="checkbox">
+                                <span>Location Permission</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>             
+            </div>          
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <h2> All Patients</h2>
+                    </div>            
+    
+                </div>
+            </div>
+            
+            <div class="row clearfix">
+                <div class="col-md-12">
+                    <div class="card patients-list">
+                        <div class="header">
+                            <h2>Patients List</h2>                            
+                        </div>
+                        <div class="body">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs-new2">
+                                <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#All">All</a></li>                                
+                            </ul>
+                                
+                            <!-- Tab panes -->
+                            <div class="tab-content m-t-10 padding-0">
+                                <div class="tab-pane table-responsive active show" id="All">
+                                    <table class="table m-b-0 table-hover">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th><center>Patients ID</center></th>
+                                                <th><center>Name</center></th>
+                                                <th><center>Age</center></th>
+                                                <th><center>Address</center></th>
+                                                <th><center>Number</center></th>
+                                                <th><center>Last Visit</center></th>
+                                                <th><center>Payment Status</center></th>                                 </tr>
+                                        </thead>
+                                        <tbody>
+                                          
+                                          <%for (var result in products){%>        
+                                              <tr>
+                                                  <td> <center>&nbsp; <%=products[result].pat_id%> &nbsp; </center></td> 
+                                                  <td> <center>&nbsp; <%=products[result].name%> &nbsp; </center></td>
+                                                  <td> <center>&nbsp; <%=products[result].age%> &nbsp; </center></td>
+                                                  <td> <center>&nbsp; <%=products[result].address%> &nbsp; </center></td> 
+                                                  <td> <center>&nbsp; <%=products[result].phone%> &nbsp; </center></td>
+                                                  <td> <center>&nbsp; <%=products[result].lastvisit%> &nbsp; </center></td>
+                                                  <%=// var temp = products[result].status%>
+                                                  <% if(products[result].status){%>
+                                                    <td><center><span class="badge badge-success">Paid</span></center></td>
+                                                  <%}else{%>
+                                                   <td><center><span class="badge badge-danger">Un-Paid</span></center></td>
+                                                  <%}%>
+                                                    
+                                              </tr>
+                                          <%}%>
+                                          
+                                                                                 
+                                        </tbody>
+                                    </table>                            
+                                </div>                                                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+<!-- Javascript -->
+<script src="bundles/libscripts.bundle.js"></script>    
+<script src="bundles/vendorscripts.bundle.js"></script>
+
+<script src="bundles/mainscripts.bundle.js"></script>
+</body>
+</html>
